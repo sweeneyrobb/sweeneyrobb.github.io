@@ -5,6 +5,7 @@ description: A blog about SharePoint development blogs.
 categories: [blog]
 tags: [demo, dbyll, dbtek]
 comments: true
+fullview: true
 modified: 2014-10-07T12:03:00-08:00
 ---
 
