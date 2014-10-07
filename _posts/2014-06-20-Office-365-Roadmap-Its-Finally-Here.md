@@ -3,8 +3,10 @@ title: Office 365 Roadmap - It’s Finally Here!
 layout: post
 description: A blog about the Office 365 Roadmap.
 categories: [blog]
-tags: [demo, dbyll, dbtek]
+tags: [o365]
 comments: true
+fullview: true
+modified: 2014-10-07T12:15:57-08:00
 ---
 I’ve had a couple of Office 365 engagements, where I am explaining current functionality of Office 365 and build expectations around the feature set. All so that Microsoft can make a fool of me and make an update to their service.
 
