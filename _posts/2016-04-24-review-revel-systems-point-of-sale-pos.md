@@ -1,5 +1,5 @@
 ---
-title: Review: Revel Systems Point of Sales (POS)
+title: "Review: Revel Systems Point of Sales (POS)"
 layout: post
 description: I am always mentioning, to various colleagues and customers, the SharePoint Development blogs that I follow. This blog entry lists the blogs that I am following.
 categories: [blog]
