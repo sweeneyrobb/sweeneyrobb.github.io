@@ -7,19 +7,9 @@ tags: [angular2]
 comments: true
 modified: 2016-06-24T09:45:23-07:00
 ---
-We have been building an application on Angular 2, since Beta 8. Managing the way 
-our application handles navigation has been somewhat static. Mostly a navigation 
-component with static `routeLinks` littered throughout. 
-
-In addition, setting up the router config was using the magic of reflection to yank 
-in the routes. Making it somewhat difficult to pull out the `@RouteConfig` data 
-for use in our application. Sure, you can reflect the data off of the component. 
-But, this seems, somehow inefficient and overly complex.
-
-## Out with the old, In with the new ##
-
-More we've recently made the upgrade from RC1 to RC3. In this upgrade, it's seems 
-as if the [official Angular 2 docs have been updated](https://angular.io/docs/ts/latest/guide/router.html)
+We are building an application on Angular 2. We've beeing working with Angular 2 
+since Beta 8. Recently we have made the upgrade from RC1 to RC3. In this upgrade, 
+it seems as if the [official Angular 2 docs have been updated](https://angular.io/docs/ts/latest/guide/router.html)
 to reflect usage of the 'new' router. Note the big disclaimer at the top.
 
 >> The Component Router is in alpha release. This is the recommended Angular 2 router 
@@ -30,8 +20,18 @@ There is also a great article on [thoughtram.io](http://thoughtram.io),
 written by [Pascal Precht](http://twitter.com/pascalprecht), which does a great job 
 outlining the new features of the new router.
 
-With any new toy we wanted to take it out for a spin and see if we can't more simply 
-solve some of our navigation issues, with something more native, using the new router.
+## Out with the old, In with the new ##
+
+Managing the way our application handles navigation has been somewhat static to date.
+Mostly a navigation component with static `routeLinks` littered throughout. We have 
+always wanted to make this component a bit more dynamic. But, our investigations with 
+the "old" router, always led us into complex solutions.
+
+So, with the news, we decided to take the "new" router for a spin to see if we can't 
+more simply solve some of our navigation issues, with something more native and simple.
+
+If you are interested, the entire example is [available here](http://plnkr.co/edit/lomzsQ?p=preview). 
+This example is forked from [Pascal Precht](http://twitter.com/pascalprecht) example mentioned earlier.
 
 ## Gettings things setup ##
 
@@ -87,5 +87,5 @@ We are very much impressed with how easy and flexible the new Angular 2 Router i
 It allows for a bunch of new scenarios natively, without having to resort to "workarounds" 
 or "hacks" to get the desired behavior.
 
-If you are interested, the entire example is available [here](http://plnkr.co/edit/lomzsQ?p=preview). 
+If you are interested, the entire example is [available here](http://plnkr.co/edit/lomzsQ?p=preview). 
 This example is forked from [Pascal Precht](http://twitter.com/pascalprecht) example mentioned earlier.
