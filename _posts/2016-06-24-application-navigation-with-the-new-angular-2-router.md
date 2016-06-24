@@ -44,31 +44,7 @@ Because this is an interface we can provide members that are not part of the `Ro
 type and the router won't get upset. This is super cool because now we can tie 
 information that is relevant to the route, directly to the route config itself.
 
-    import { ContactsListComponent } from './contacts-list.component';
-    import { ContactsDetailComponent } from './contacts-detail.component';
-    import { WelcomeComponent } from './welcome.component';
-
-    export const AppRoutes = [
-        { 
-            name: "Welcome",
-            description: "Welcome to the Contacts Application.",
-            path: '', 
-            showInNav: true,
-            component: WelcomeComponent 
-        }, { 
-            name: "List",
-            description: "List of your contacts.",
-            path: 'contacts', 
-            showInNav: true,
-            component: ContactsListComponent 
-        }, { 
-            name: "Details",
-            description: "Details for your contact.",
-            path: 'contact/:id', 
-            showInNav: false,
-            component: ContactsDetailComponent 
-        }
-    ]
+{% gist d2154bbd34a416642767c00f085442a5 app-routes.ts %}
 
 As you can see in my example, we've attached members `name, description, showInNav` which 
 are not required by the router. In order to feed this into the router, you'll need to use 
