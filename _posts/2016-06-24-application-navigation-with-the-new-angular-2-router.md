@@ -50,12 +50,7 @@ As you can see in my example, we've attached members `name, description, showInN
 are not required by the router. In order to feed this into the router, you'll need to use 
 the `providerRouter()` and send the result into the providers array on your bootstrapper.
 
-    import { bootstrap }    from '@angular/platform-browser-dynamic';
-    import { AppComponent } from './app.component';
-    import { provideRouter } from '@angular/router';
-    import { AppRoutes } from './app-routes';
-
-    bootstrap(AppComponent, [provideRouter(AppRoutes)]);
+{% gist d2154bbd34a416642767c00f085442a5 main.ts %}
 
 Viola! That's pretty much all you'll need to get things going.
 
@@ -65,22 +60,8 @@ Now that the router is all wired up you can go upon your normal business using `
 very similarly to how you used to. But, since this information is stored in an `<any>[]` 
 why not use it as a data source for your navigation.
 
-    import { Component } from '@angular/core'
-    import { ROUTER_DIRECTIVES } from '@angular/router'
-    import { AppRoutes } from './app-routes'
+{% gist d2154bbd34a416642767c00f085442a5 nav.component.ts %}
 
-    @Component({
-    selector: 'my-nav',
-    template: `
-        <ul class="nav nav-pills nav-stacked">
-        <li *ngFor="let item of navItems" role="presentation" class="active"><a [routerLink]="item.path">{{item.name}}</a>
-        </ul>`,
-    directives: [ ROUTER_DIRECTIVES ]
-    })
-    export class NavComponent { 
-        navItems = AppRoutes.filter(i => i.showInNav)
-    }
-        
 As you can see it's fairly straight-forward to use the same `RouterConfig` supplied to
 the router for consumption elsewhere. Now you could have done this before, however,
 it required you to reflect data out of the `@RouteConfig` metadata. The new router makes 
@@ -92,38 +73,7 @@ Just for kicks, I wanted to exercise again, how cool it is to have this data rea
 available. We wanted the application header to respond to route events. Allowing us to 
 create a consistent, and generic application header.
 
-    import { Component, OnInit } from '@angular/core'
-    import { Router, RoutesRecognized, ActivatedRouteSnapshot } from '@angular/router'
-    import { AppRoutes } from './app-routes'
-    import 'rxjs/add/operator/map'
-    import 'rxjs/add/operator/filter'
-
-    @Component({
-        selector: 'my-header',
-        template: `
-        <div *ngIf="routeData" class="jumbotron">
-            <h1>{{ routeData.name }}</h1>
-            <p>{{ routeData.description }}</p>
-        </div>`
-    })
-
-    export class HeaderComponent implements OnInit {
-        constructor(
-            private router: Router
-        ) { }
-
-        routeData : any = null
-
-        ngOnInit() {
-            this.router.events
-                .filter(e => e instanceof RoutesRecognized)
-                .map(e => <RoutesRecognized>e)
-                .subscribe((e) => {
-                    const currentPath = e.state.firstChild(e.state.root)._routeConfig.path
-                    this.routeData = AppRoutes.find(route => route.path === currentPath)
-                })
-        }
-    }
+{% gist d2154bbd34a416642767c00f085442a5 header.component.ts %}
 
 What we've done here was have our `HeaderComponent` subscribe to the events being 
 emitted by the router. There are several types of events, but, we only care about 
